@@ -1,1 +1,28 @@
+.nav-wrapper {
+  background: #313131;
+}
 
+.top-menu {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0 20px 0;
+  width: 80%;
+}
+
+.sub-menu {
+  background-color: blue;
+}
+
+p, li {
+  color: white;
+}
+
+.apple-logo {
+  max-width: 20px;
+}
+
+ li {
+  list-style-type: none;
+  font-size: 1rem;
+ }

@@ -1,8 +1,31 @@
 import React from 'react';
-import Nav from './Nav';
+import appleLogo from './../appleIcons/appleLogo.png';
+import './../App.css';
+import { Link, NavLink, Route } from 'react-router-dom';
+import SubNav from './SubNav';
 
-const NavWrapper = () => {
-  <Nav />
+
+const NavWrapper = (props) => {
+  return ( 
+    <div className='nav-wrapper'>
+      <nav className='top-menu'>
+        <Link to='/'><li><img src={appleLogo} alt='Apple logo' className='apple-logo'/></li></Link>
+        {props.nav.map(item => {
+          return (
+            <div>
+            <NavLink to={`/${item.navItem}`}><li>{item.navItem}</li></NavLink>
+            <div className='sub-menu'>
+              <Route
+                path={`/${item.navItem}`}
+                render={props => <SubNav {...props} icons={item.subMenuIcons}/>}
+              /> 
+            </div> 
+            </div>
+          )
+        })}
+      </nav>
+    </div>
+  )
 }
 
 export default NavWrapper
