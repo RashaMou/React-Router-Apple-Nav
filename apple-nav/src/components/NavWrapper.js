@@ -13,14 +13,16 @@ const NavWrapper = (props) => {
         {props.nav.map(item => {
           return (
             <div>
-            <NavLink to={`/${item.navItem}`}><li>{item.navItem}</li></NavLink>
-            <div className='sub-menu'>
-              <Route
-                path={`/${item.navItem}`}
-                render={props => <SubNav {...props} icons={item.subMenuIcons}/>}
-              /> 
-            </div> 
-            </div>
+              <div>
+                <NavLink to={`/${item.navItem}`}><li>{item.navItem}</li></NavLink>
+              </div>
+              <nav className='sub-menu'>
+                <Route
+                  path={`/${item.navItem}`}
+                  render={props => <SubNav {...props} icons={item.subMenuIcons}/>}
+                /> 
+              </nav> 
+            </div>  
           )
         })}
       </nav>
