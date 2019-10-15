@@ -10,22 +10,23 @@ const NavWrapper = (props) => {
     <div className='nav-wrapper'>
       <nav className='top-menu'>
         <Link to='/'><li><img src={appleLogo} alt='Apple logo' className='apple-logo'/></li></Link>
+        <NavLink to='/mac'><li>Mac</li></NavLink>
+        <NavLink to='/ipad'><li>iPad</li></NavLink>
+        <NavLink to='/iphone'><li>iPhone</li></NavLink>
+        <NavLink to='/watch'><li>Watch</li></NavLink>
+        <NavLink to='/tv'><li>TV</li></NavLink>
+        <NavLink to='/music'><li>Music</li></NavLink>   
+      </nav>
         {props.nav.map(item => {
           return (
-            <div>
-              <div>
-                <NavLink to={`/${item.navItem}`}><li>{item.navItem}</li></NavLink>
-              </div>
               <nav className='sub-menu'>
                 <Route
                   path={`/${item.navItem}`}
                   render={props => <SubNav {...props} icons={item.subMenuIcons}/>}
                 /> 
-              </nav> 
-            </div>  
+              </nav>   
           )
         })}
-      </nav>
     </div>
   )
 }
